@@ -83,31 +83,41 @@ public class GameCube : MonoBehaviour
 		}
 	}
 
-	public void SetTarget (ref Node node, MoveDirection md)
+	public void SetTarget (ref Node target, MoveDirection md)
 	{
-		if (node == this.mCurrentNode) {
-			Debug.Log("all in position");
-			return;
-		}else if (node.mGameCube != null) {
-			print ("cant move" + node.gameObject.name);
-			switch (md) {
-			case MoveDirection.Up:
-				SetTarget (ref node.mDown, md);
-				break;
-			case MoveDirection.Left:
-				SetTarget (ref node.mRight, md);
-				break;
-			case MoveDirection.Down:
-				SetTarget (ref node.mUp, md);
-				break;
-			case MoveDirection.Right:
-				SetTarget (ref node.mLeft, md);
-				break;
-			}
-		} else {
-			mCurrentNode.mGameCube=null;
-			mTargetNode = node;
-			node.mGameCube = this;
+//		if (target == mCurrentNode) {//已移动到位
+//			Debug.Log ("i am in position");
+//			return;
+//		} 
+//		else if (node.mGameCube != null) {//无法移动到位
+//			if (mType == CubeType.D) {
+//				mCurrentNode.mGameCube = null;
+//				mTargetNode = node;
+//			} else {
+//				print ("cant move" + node.gameObject.name);
+//				switch (md) {
+//				case MoveDirection.Up:
+//					SetTarget (ref node.mDown, md);
+//					break;
+//				case MoveDirection.Left:
+//					SetTarget (ref node.mRight, md);
+//					break;
+//				case MoveDirection.Down:
+//					SetTarget (ref node.mUp, md);
+//					break;
+//				case MoveDirection.Right:
+//					SetTarget (ref node.mLeft, md);
+//					break;
+//				}
+//			}
+//		} else {//可移动
+
+		mCurrentNode.mGameCube = null;
+		mTargetNode = target;
+		if (mType != CubeType.D) {
+			target.mGameCube = this;
 		}
+		
+
 	}
 }
