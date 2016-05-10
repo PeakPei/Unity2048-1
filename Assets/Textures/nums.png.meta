@@ -1,9 +1,22 @@
 fileFormatVersion: 2
 guid: 8ad6a61193a89e5499ae3ebff7f2b872
-timeCreated: 1458712485
+timeCreated: 1462853418
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: nums_8192
+    21300002: nums_4096
+    21300004: nums_8
+    21300006: nums_2
+    21300008: nums_128
+    21300010: nums_512
+    21300012: nums_4
+    21300014: nums_16
+    21300016: nums_2048
+    21300018: nums_256
+    21300020: nums_64
+    21300022: nums_32
+    21300024: nums_1024
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,7 +51,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,7 +62,252 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: nums_8192
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 427
+        width: 83
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31.5, y: 41.5}
+        - {x: -41.5, y: 37.5}
+        - {x: -41.5, y: -24.5}
+        - {x: -29.5, y: -41.5}
+        - {x: 41.5, y: -41.5}
+        - {x: 41.5, y: 41.5}
+    - name: nums_4096
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 427
+        width: 83
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31.5, y: 41.5}
+        - {x: -41.5, y: 37.5}
+        - {x: -41.5, y: -24.5}
+        - {x: -29.5, y: -41.5}
+        - {x: 41.5, y: -41.5}
+        - {x: 41.5, y: 41.5}
+    - name: nums_8
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 429
+        width: 82
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -22, y: 41.5}
+        - {x: -41, y: 23.5}
+        - {x: -41, y: -26.5}
+        - {x: -40, y: -30.5}
+        - {x: -31, y: -41.5}
+        - {x: 33, y: -41.5}
+        - {x: 41, y: -33.5}
+        - {x: 41, y: 32.5}
+        - {x: 22, y: 41.5}
+    - name: nums_2
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 260
+        width: 84
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 2, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -39, y: 42}
+        - {x: -42, y: 34}
+        - {x: -42, y: -39}
+        - {x: -30, y: -42}
+        - {x: 35, y: -42}
+        - {x: 42, y: -29}
+        - {x: 42, y: 25}
+        - {x: 25, y: 42}
+    - name: nums_128
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 99
+        width: 81
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 39.5, y: 31}
+        - {x: 25.5, y: 41}
+        - {x: -17.5, y: 41}
+        - {x: -32.5, y: 38}
+        - {x: -40.5, y: 24}
+        - {x: -40.5, y: -28}
+        - {x: -23.5, y: -41}
+        - {x: 21.5, y: -41}
+        - {x: 28.5, y: -39}
+        - {x: 40.5, y: -26}
+        - {x: 40.5, y: 22}
+    - name: nums_512
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 343
+        width: 85
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28.5, y: 41.5}
+        - {x: -42.5, y: 34.5}
+        - {x: -42.5, y: -35.5}
+        - {x: -38.5, y: -41.5}
+        - {x: 42.5, y: -41.5}
+        - {x: 42.5, y: 41.5}
+    - name: nums_4
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 343
+        width: 84
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 42.5}
+        - {x: -42, y: 32.5}
+        - {x: -42, y: -27.5}
+        - {x: -35, y: -42.5}
+        - {x: 26, y: -42.5}
+        - {x: 42, y: -27.5}
+        - {x: 42, y: 35.5}
+        - {x: 26, y: 42.5}
+    - name: nums_16
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 346
+        width: 83
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.5, y: 41.5}
+        - {x: -41.5, y: 34.5}
+        - {x: -41.5, y: -27.5}
+        - {x: -29.5, y: -41.5}
+        - {x: 30.5, y: -41.5}
+        - {x: 41.5, y: -38.5}
+        - {x: 41.5, y: 30.5}
+        - {x: 32.5, y: 41.5}
+    - name: nums_2048
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 259
+        width: 83
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -34.5, y: 42}
+        - {x: -41.5, y: 21}
+        - {x: -41.5, y: -24}
+        - {x: -23.5, y: -42}
+        - {x: 24.5, y: -42}
+        - {x: 41.5, y: -33}
+        - {x: 41.5, y: 36}
+        - {x: 34.5, y: 42}
+    - name: nums_256
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 262
+        width: 83
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26.5, y: 41.5}
+        - {x: -41.5, y: 36.5}
+        - {x: -41.5, y: -24.5}
+        - {x: -36.5, y: -41.5}
+        - {x: 31.5, y: -41.5}
+        - {x: 41.5, y: -39.5}
+        - {x: 41.5, y: 34.5}
+        - {x: 34.5, y: 41.5}
+    - name: nums_64
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 177
+        width: 84
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28, y: 41.5}
+        - {x: -42, y: 27.5}
+        - {x: -42, y: -28.5}
+        - {x: -28, y: -41.5}
+        - {x: 36, y: -41.5}
+        - {x: 42, y: -26.5}
+        - {x: 42, y: 31.5}
+        - {x: 26, y: 41.5}
+    - name: nums_32
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 178
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 41}
+        - {x: -41, y: 36}
+        - {x: -41, y: -38}
+        - {x: -28, y: -41}
+        - {x: 32, y: -41}
+        - {x: 41, y: -30}
+        - {x: 41, y: 28}
+        - {x: 30, y: 41}
+    - name: nums_1024
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 181
+        width: 81
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -30.5, y: 41}
+        - {x: -39.5, y: 28}
+        - {x: -40.5, y: 20}
+        - {x: -40.5, y: -36}
+        - {x: -39.5, y: -41}
+        - {x: 40.5, y: -41}
+        - {x: 40.5, y: 36}
+        - {x: 29.5, y: 41}
     outline: []
   spritePackingTag: 
   userData: 
