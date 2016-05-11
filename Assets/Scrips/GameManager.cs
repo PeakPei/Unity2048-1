@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 	public float score;
 	private static GameManager instance;
 	//标记盘面移动状态
-	private bool hasCubeMoving;
+	public bool hasCubeMoving;
 	//游戏状态
 	private GameStatus status;
 
@@ -80,22 +80,38 @@ public class GameManager : MonoBehaviour
 				for (int i = 0; i < mNodes.Length; i++) {
 					if (!mNodes [i].mGameCube) {//当前位置为空位置
 						break;
-					}else if (mNodes[i].mUp&&(!(mNodes[i].mUp.mGameCube))) {
+					} else if (mNodes [i].mUp && (!(mNodes [i].mUp.mGameCube))) {
 						break;
-					}else if (mNodes[i].mRight&&(!(mNodes[i].mRight.mGameCube))) {
+					} else if (mNodes [i].mRight && (!(mNodes [i].mRight.mGameCube))) {
 						break;
-					}else if (mNodes[i].mUp&&(mNodes[i].mGameCube.mValue==mNodes[i].mUp.mGameCube.mValue)) {
+					} else if (mNodes [i].mUp && (mNodes [i].mGameCube.mValue == mNodes [i].mUp.mGameCube.mValue)) {
 						break;
-					}else if (mNodes[i].mRight&&(mNodes[i].mGameCube.mValue==mNodes[i].mRight.mGameCube.mValue)) {
+					} else if (mNodes [i].mRight && (mNodes [i].mGameCube.mValue == mNodes [i].mRight.mGameCube.mValue)) {
 						break;
-					}else {
-						Debug.Log("GameOver!!!");
+					} else {
+						if (i == (mNodes.Length - 1)) {
+							//说明到了最后一个
+							Debug.Log ("GameOver!!!");
+						}
 					}
 				}
 			}
 		}
 	}
 
+	/// <summary>
+	/// 在盘面空位置上随机添加GameCube
+	/// </summary>
+	private void AddCube()
+	{
+		List<Node> tempList=new List<Node>();
+		for (int i = 0; i < mNodes.Length; i++) {
+			if (!mNodes[i].mGameCube) {
+				tempList.Add(mNodes[i]);
+			}
+		}
+		//TODO
+	}
 
 	public static GameManager GetInstance ()
 	{
@@ -105,7 +121,6 @@ public class GameManager : MonoBehaviour
 	private void MoveBoard (MoveDirection direction)
 	{
 		if (status == GameStatus.Playing) {
-			hasCubeMoving = true;
 			for (int i = 0; i < 4; i++) {
 				Node[] tempN = new Node[]{ };
 				//根据输入的滑动方向决定获取元素的顺序

@@ -25,6 +25,7 @@ public class GameCube : MonoBehaviour
 		if (mTargetNode) {
 			if (mCurrentNode != mTargetNode) {//移动位置阶段
 				isMoving=true;
+				GameManager.GetInstance().hasCubeMoving=true;
 				transform.position = Vector3.MoveTowards (transform.position, mTargetNode.transform.position, Time.deltaTime * 10);
 				if (Vector3.Distance (transform.position, mTargetNode.transform.position) < 0.1f) {
 					mCurrentNode = mTargetNode;
