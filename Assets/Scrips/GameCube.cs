@@ -31,6 +31,8 @@ public class GameCube : MonoBehaviour
 				case CubeType.N:
 					break;
 				case CubeType.F:
+					GameManager.GetInstance ().score += Mathf.Log (mValue, 2);
+					;//每次融合增加奖励分,暂时只用了对数,没有放大
 					mValue *= 2;
 					switch (mValue) {
 					case 2:
@@ -114,7 +116,7 @@ public class GameCube : MonoBehaviour
 
 		mCurrentNode.mGameCube = null;
 		mTargetNode = target;
-		if (mType != CubeType.D) {
+		if (mType != CubeType.D) {//删除的元素不需要成为任何Node的Cube
 			target.mGameCube = this;
 		}
 		

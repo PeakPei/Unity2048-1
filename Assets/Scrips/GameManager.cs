@@ -9,6 +9,15 @@ public class GameManager : MonoBehaviour
 
 	public Node[] mNodes;
 
+	[HideInInspector ()]
+	public float score;
+	private static GameManager instance;
+
+	void Awake ()
+	{
+		instance = this;
+	}
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -19,6 +28,11 @@ public class GameManager : MonoBehaviour
 	void Update ()
 	{
 	
+	}
+
+	public static GameManager GetInstance ()
+	{
+		return instance;
 	}
 
 	public void MoveDown (MoveDirection direction)
@@ -52,23 +66,21 @@ public class GameManager : MonoBehaviour
 			for (int j = 0; j < cubeList.Count; j++) {
 				if (j > 0 && cubeList [j - 1].mType == CubeType.F) {//typeD,删除元素
 					cubeList [j].mType = CubeType.D;
+					//该元素将被删除,所以不需要目标位递增
 				} else if (j < (cubeList.Count - 1) && cubeList [j].mValue == cubeList [j + 1].mValue) {//typeF,融合元素
 					cubeList [j].mType = CubeType.F;
 					targetIndex++;
 				} else {//typeN,酱油元素
 					targetIndex++;
 				}
-//				print (targetIndex - 1);
 				cubeList [j].SetTarget (ref tempN [targetIndex - 1], MoveDirection.Down);
 			}
 		}
 	}
 
-
-
-
 	void OnGUI ()
 	{
+		//可以在控制输入的地方加一个invoke限制连续输入,TODO
 		if (GUILayout.Button ("UP")) {
 			MoveDown (MoveDirection.Up);
 		}
@@ -81,5 +93,10 @@ public class GameManager : MonoBehaviour
 		if (GUILayout.Button ("RIGHT")) {
 			MoveDown (MoveDirection.Right);
 		}
+		if (GUILayout.Button ("Test")) {
+			float a = Utils.Log (8, 2);
+			print (a.ToString ());
+		}
+		GUILayout.Label (score.ToString ());
 	}
 }
