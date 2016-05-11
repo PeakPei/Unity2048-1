@@ -9,6 +9,8 @@ public class GameCube : MonoBehaviour
 	public CubeType mType;
 	public Sprite[] mSprites;
 	private SpriteRenderer mRender;
+	[HideInInspector]
+	public bool isMoving;//标记GameCube是否在移动
 
 	// Use this for initialization
 	void Start ()
@@ -22,9 +24,11 @@ public class GameCube : MonoBehaviour
 		//这里不包含状态改变阶段,状态改变由全局角色控制,这里只处理状态改变之后,也就是mTargetNode改变之后的逻辑
 		if (mTargetNode) {
 			if (mCurrentNode != mTargetNode) {//移动位置阶段
+				isMoving=true;
 				transform.position = Vector3.MoveTowards (transform.position, mTargetNode.transform.position, Time.deltaTime * 10);
 				if (Vector3.Distance (transform.position, mTargetNode.transform.position) < 0.1f) {
 					mCurrentNode = mTargetNode;
+					isMoving=false;
 				}
 			} else {//移动完成阶段
 				switch (mType) {
@@ -87,39 +91,10 @@ public class GameCube : MonoBehaviour
 
 	public void SetTarget (ref Node target, MoveDirection md)
 	{
-//		if (target == mCurrentNode) {//已移动到位
-//			Debug.Log ("i am in position");
-//			return;
-//		} 
-//		else if (node.mGameCube != null) {//无法移动到位
-//			if (mType == CubeType.D) {
-//				mCurrentNode.mGameCube = null;
-//				mTargetNode = node;
-//			} else {
-//				print ("cant move" + node.gameObject.name);
-//				switch (md) {
-//				case MoveDirection.Up:
-//					SetTarget (ref node.mDown, md);
-//					break;
-//				case MoveDirection.Left:
-//					SetTarget (ref node.mRight, md);
-//					break;
-//				case MoveDirection.Down:
-//					SetTarget (ref node.mUp, md);
-//					break;
-//				case MoveDirection.Right:
-//					SetTarget (ref node.mLeft, md);
-//					break;
-//				}
-//			}
-//		} else {//可移动
-
 		mCurrentNode.mGameCube = null;
 		mTargetNode = target;
 		if (mType != CubeType.D) {//删除的元素不需要成为任何Node的Cube
 			target.mGameCube = this;
 		}
-		
-
 	}
 }
