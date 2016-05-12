@@ -9,12 +9,15 @@ public class GameManager : MonoBehaviour
 {
 	//对应盘面上的每个点
 	public Node[] mNodes;
-	[HideInInspector ()]
-	public float score;
+	public GameCube mCubePrefab;
 	private static GameManager instance;
 	//标记盘面移动状态
+	[HideInInspector]
 	public bool hasCubeMoving;
+	[HideInInspector ()]
+	public float score;
 	//游戏状态
+	[HideInInspector]
 	private GameStatus status;
 
 	void Awake ()
@@ -65,12 +68,14 @@ public class GameManager : MonoBehaviour
 						} else if (i == (mNodes.Length - 1)) {
 							//说明到了最后一个
 							hasCubeMoving = false;
-							//添加新cube,TODO
+							//添加新cube
+							AddCube ();
 						}
 					} else if (i == (mNodes.Length - 1)) {
 						//说明到了最后一个
 						hasCubeMoving = false;
-						//添加新cube,TODO
+						//添加新cube
+						AddCube ();
 					}
 				}
 			}
@@ -102,15 +107,29 @@ public class GameManager : MonoBehaviour
 	/// <summary>
 	/// 在盘面空位置上随机添加GameCube
 	/// </summary>
-	private void AddCube()
+	private void AddCube ()
 	{
-		List<Node> tempList=new List<Node>();
+		//先获取到所有空位置
+		List<Node> tempList = new List<Node> ();
 		for (int i = 0; i < mNodes.Length; i++) {
-			if (!mNodes[i].mGameCube) {
-				tempList.Add(mNodes[i]);
+			if (!mNodes [i].mGameCube) {
+				tempList.Add (mNodes [i]);
 			}
 		}
-		//TODO
+		int pos = Random.Range (0, (tempList.Count - 1));
+		Debug.Log ("positon=" + tempList [pos].mPosX + "-" + tempList [pos].mPosY + ",index=" + pos);
+		GameCube cube = Instantiate (mCubePrefab, tempList [pos].transform.position, Quaternion.identity) as GameCube;
+		//乱入数,2或者4
+		int num=Random.value>0.4?2:4;
+		if (num==2) {
+			cube.mValue = 2;
+			cube.GetComponent<SpriteRenderer> ().sprite = cube.mSprites [0];
+		}else{
+			cube.mValue = 4;
+			cube.GetComponent<SpriteRenderer> ().sprite = cube.mSprites [1];
+		}
+		cube.mCurrentNode = tempList [pos];
+		tempList [pos].mGameCube = cube;
 	}
 
 	public static GameManager GetInstance ()
@@ -178,8 +197,7 @@ public class GameManager : MonoBehaviour
 			MoveBoard (MoveDirection.Right);
 		}
 		if (GUILayout.Button ("Test")) {
-			float a = Utils.Log (8, 2);
-			print (a.ToString ());
+			AddCube ();
 		}
 		GUILayout.Label (score.ToString ());
 	}
