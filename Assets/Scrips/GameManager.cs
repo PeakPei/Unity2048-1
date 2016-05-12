@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour
 	{
 		status = GameStatus.Playing;
 		StartCoroutine (CoroutineUpdate ());
+		AddCube ();
+		AddCube ();
 	}
 
 	private void GameOver ()
@@ -184,6 +186,7 @@ public class GameManager : MonoBehaviour
 	void OnGUI ()
 	{
 		//可以在控制输入的地方加一个invoke限制连续输入,TODO
+		GUILayout.BeginArea(new Rect(20,150,100,150));
 		if (GUILayout.Button ("UP")) {
 			MoveBoard (MoveDirection.Up);
 		}
@@ -196,9 +199,10 @@ public class GameManager : MonoBehaviour
 		if (GUILayout.Button ("RIGHT")) {
 			MoveBoard (MoveDirection.Right);
 		}
-		if (GUILayout.Button ("Test")) {
-			AddCube ();
-		}
+//		if (GUILayout.Button ("Test")) {
+//			AddCube ();
+//		}
 		GUILayout.Label (score.ToString ());
+		GUILayout.EndArea();
 	}
 }
